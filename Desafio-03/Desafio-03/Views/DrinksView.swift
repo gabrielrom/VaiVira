@@ -14,7 +14,6 @@ struct DrinksView: View {
     
     var columns = [
         GridItem(.flexible()),
-        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
@@ -30,12 +29,14 @@ struct DrinksView: View {
                             }
                             .indicator(.activity)
                             .scaledToFit()
-                            .cornerRadius(4)
-                            .frame(width: 70)
+                            .cornerRadius(10)
+                            .frame(width: 100)
+                            .shadow(color: Color.gray, radius: 25)
                         Text(drink.drink)
                             .fontWeight(.semibold)
                             .lineLimit(1)
                     }
+                    
                 }
             }
         }
@@ -55,7 +56,7 @@ struct DrinksView: View {
                             .indicator(.activity)
                             .scaledToFit()
                             .cornerRadius(4)
-                            .frame(width: 70)
+                            .frame(width: 100)
                         Text(drink.drink)
                             .fontWeight(.semibold)
                             .lineLimit(1)
