@@ -24,6 +24,7 @@ struct ContentView: View {
     
     var items = [0, 1, 2, 4, 5, 6]
     
+    
     fileprivate func gridFormat() -> some View {
         return ScrollView {
             LazyVGrid(columns: columns, alignment: .center) {
@@ -47,7 +48,32 @@ struct ContentView: View {
         }
     }
     
-    fileprivate func listFromat() -> some View {
+    
+    fileprivate func listFormat2() -> some View {
+        return ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible())], alignment: .leading) {
+                ForEach(items, id: \.self) { _ in
+                    HStack() {
+                        WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg"))
+                            .resizable()
+                            .placeholder {
+                                Rectangle().foregroundColor(.gray)
+                            }
+                            .indicator(.activity)
+                            .scaledToFit()
+                            .cornerRadius(4)
+                            .frame(width: 70)
+                        Text("Nome")
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
+                }
+            }
+        }
+    }
+    
+    fileprivate func listFormat() -> some View {
         return List(0..<items.count) { _ in
             HStack {
                 WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg"))
@@ -68,12 +94,13 @@ struct ContentView: View {
         }
         .onAppear {
             CocktailAPI().getDrinks { response in
-                debugPrint(response)
+                debugPrint(response?.drinks)
             }
         }
     }
     
     var body: some View {
+        
         NavigationView {
             if self.viewModel.grid {
                 gridFormat()
@@ -86,7 +113,7 @@ struct ContentView: View {
                         }
                     }
             } else {
-                listFromat()
+                listFormat()
                     .navigationTitle("ZéDoDrink")
                     .toolbar {
                         Button {
