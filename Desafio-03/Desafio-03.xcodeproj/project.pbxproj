@@ -17,6 +17,11 @@
 		803B0F6F277362E800A5ABF1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 803B0F6E277362E800A5ABF1 /* RxRelay */; };
 		803B0F71277362E800A5ABF1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 803B0F70277362E800A5ABF1 /* RxSwift */; };
 		803B0F742773637400A5ABF1 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 803B0F732773637400A5ABF1 /* SDWebImageSwiftUI */; };
+		C157AC7527736B400010043E /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7427736B400010043E /* Drink.swift */; };
+		C157AC7727736D180010043E /* DrinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7627736D180010043E /* DrinkResponse.swift */; };
+		C157AC7A27736D430010043E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7927736D430010043E /* API.swift */; };
+		C157AC7C27736E530010043E /* CocktailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7B27736E530010043E /* CocktailAPI.swift */; };
+		C157AC7F27736F080010043E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C157AC7E27736F080010043E /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,10 @@
 		803B0F5A27735DFD00A5ABF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		803B0F5F27735DFE00A5ABF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C157AC7427736B400010043E /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		C157AC7627736D180010043E /* DrinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkResponse.swift; sourceTree = "<group>"; };
+		C157AC7927736D430010043E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C157AC7B27736E530010043E /* CocktailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				803B0F742773637400A5ABF1 /* SDWebImageSwiftUI in Frameworks */,
+				C157AC7F27736F080010043E /* Alamofire in Frameworks */,
 				803B0F6D277362E800A5ABF1 /* RxCocoa in Frameworks */,
 				803B0F6A2773629700A5ABF1 /* SDWebImageMapKit in Frameworks */,
 				803B0F71277362E800A5ABF1 /* RxSwift in Frameworks */,
@@ -63,6 +73,8 @@
 		803B0F5727735DFD00A5ABF1 /* Desafio-03 */ = {
 			isa = PBXGroup;
 			children = (
+				C157AC7827736D2F0010043E /* Network */,
+				C157AC7327736A770010043E /* Models */,
 				803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */,
 				803B0F5A27735DFD00A5ABF1 /* ContentView.swift */,
 				803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */,
@@ -77,6 +89,24 @@
 				803B0F5F27735DFE00A5ABF1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C157AC7327736A770010043E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C157AC7427736B400010043E /* Drink.swift */,
+				C157AC7627736D180010043E /* DrinkResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C157AC7827736D2F0010043E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C157AC7927736D430010043E /* API.swift */,
+				C157AC7B27736E530010043E /* CocktailAPI.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +132,7 @@
 				803B0F6E277362E800A5ABF1 /* RxRelay */,
 				803B0F70277362E800A5ABF1 /* RxSwift */,
 				803B0F732773637400A5ABF1 /* SDWebImageSwiftUI */,
+				C157AC7E27736F080010043E /* Alamofire */,
 			);
 			productName = "Desafio-03";
 			productReference = 803B0F5527735DFD00A5ABF1 /* Desafio-03.app */;
@@ -135,6 +166,7 @@
 				803B0F662773629700A5ABF1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				803B0F6B277362E700A5ABF1 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				803B0F722773637400A5ABF1 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				C157AC7D27736F070010043E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 803B0F5627735DFD00A5ABF1 /* Products */;
 			projectDirPath = "";
@@ -162,8 +194,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C157AC7C27736E530010043E /* CocktailAPI.swift in Sources */,
+				C157AC7527736B400010043E /* Drink.swift in Sources */,
+				C157AC7727736D180010043E /* DrinkResponse.swift in Sources */,
 				803B0F5B27735DFD00A5ABF1 /* ContentView.swift in Sources */,
 				803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */,
+				C157AC7A27736D430010043E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +330,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Desafio-03/Preview Content\"";
+				DEVELOPMENT_TEAM = QY4497WU49;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -301,6 +338,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,6 +360,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Desafio-03/Preview Content\"";
+				DEVELOPMENT_TEAM = QY4497WU49;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -329,6 +368,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,6 +430,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C157AC7D27736F070010043E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -422,6 +470,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 803B0F722773637400A5ABF1 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		C157AC7E27736F080010043E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C157AC7D27736F070010043E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
