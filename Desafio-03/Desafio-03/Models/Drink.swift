@@ -1,5 +1,7 @@
 // Drink.swift
 
+import Foundation
+
 struct Drink: Decodable, Hashable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id = "idDrink"
@@ -17,5 +19,12 @@ struct Drink: Decodable, Hashable, Identifiable {
         id = try values.decode(String.self, forKey: .id)
         drink = try values.decode(String.self, forKey: .drink)
         drinkThumb = try values.decode(String.self, forKey: .drinkThumb)
+    }
+    
+    func getURL() -> URL {
+        let drinkName = self.drink.split(separator: " ").joined(separator: "-")
+        let url = "https://www.thecocktaildb.com/drink/\(self.id)-\(drinkName)"
+        
+        return URL(string: url) ?? URL(string: "https://google.com")!
     }
 }
