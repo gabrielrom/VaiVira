@@ -1,31 +1,38 @@
-# Desafio 3 - iOS
+# VaiVira
 
-## Descrição - Fase 1
+Bem-vindo ao VaiVira, o aplicativo que compila bebidas e coquetéis do mundo todo!
 
-Vocês precisam criar uma aplicação que:
-- Consuma uma API que possua listagem.
-- Permita ao usuário trocar a forma de visualização entre lista e grade.
+# Bebidas Pestrigiadas pelos Maiores Profissionais
 
-## Requisitos - Fase 1
+<img src="https://mcusercontent.com/a9e8c9ee47bafbf555a20656f/images/214b09f1-ddcd-48f8-fba3-4c3730e1c51d.gif" alt="drawing" style="width:600px;"/>
 
-- A aplicação precisa ser concluída para apresentação no check-in do dia 23/12/2021.
-- Definições sobre qual tecnologia, arquitetura, layout, API utilizada, versões do iOS e Swift, implementação de testes, etc são de cada grupo, porém todas as decisões devem ser justificadas (exemplos: "decidimos usar a API da SpaceX para apresentar os dados relacionados aos lançamentos e foguetes da SpaceX, por ter relação com o Astro", ou "optamos por usar Swift com Combine pela facilidade no desenvolvimento, e por se tratar de uma tecnologia que o banco está adotando").
-- O projeto deve deve ser documentado.
+# Algumas Bebidas
 
-### Sugestões
+## Sweet Sangria | Sea breeze | Boston Sour
 
-Para cada decisão que tomarem, considerem o prazo para entrega do aplicativo, e lembrem que não se deve abrir mão da qualidade - é sempre melhor ter algo mais minimalista mas que funcione corretamente, do que algo rebuscado porém cheio de bugs.
+<img src="https://www.thecocktaildb.com/images/media/drink/uqqvsp1468924228.jpg" alt="drawing" style="width:200px;"/><img src="https://www.thecocktaildb.com/images/media/drink/7rfuks1504371562.jpg" alt="drawing" style="width:200px;"/><img src="https://www.thecocktaildb.com/images/media/drink/kxlgbi1504366100.jpg" alt="drawing" style="width:200px;"/>
 
-### Processo de submissão
+# Autores
 
-O grupo deverá implementar a solução e enviar um pull request para este repositório com a solução.
-O processo de Pull Request funciona da seguinte maneira:
-1. Grupo fará um fork desse repositório (não irá clonar direto!)
-
-2. Fará seu projeto nesse fork.
-
-3. Commitará e subirá as alterações para o SEU fork.
-
-4. Pela interface do GitHub, irá enviar um Pull Request.
-
-**ATENÇÃO** Não se deve tentar fazer o PUSH diretamente para ESTE repositório!
+<p align="center">
+    <a href="https://www.linkedin.com/in/jessemonteiro/" alt="Jessé Monteiro">
+        <img src="https://img.shields.io/badge/Jessé-Monteiro-white?style=for-the-badge&logo=CoffeeScript"/>
+    </a>
+    <a href="https://www.linkedin.com/in/marcoantoniosm/" alt="Marco Antônio">
+        <img src="https://img.shields.io/badge/Marco-Antônio-red?style=for-the-badge&logo=CoffeeScript"/>
+    </a>
+    <a href="https://www.linkedin.com/in/marcosfeliperocha/" alt="Marcos Rocha">
+        <img src="https://img.shields.io/badge/Marcos-Rocha-blue?style=for-the-badge&logo=CoffeeScript"/>
+    </a>
+</p>
+<p align="center">
+    <a href="https://www.linkedin.com/in/matheus-de-assis-carvalho" alt="Matheus Carvalho">
+        <img src="https://img.shields.io/badge/Matheus-Carvalho-green?style=for-the-badge&logo=CoffeeScript"/>
+    </a>
+    <a href="https://www.linkedin.com/in/pedrohcalado" alt="Pedro Calado">
+        <img src="https://img.shields.io/badge/Pedro-Calado-grey?style=for-the-badge&logo=CoffeeScript"/>
+    </a>
+     <a href="https://www.linkedin.com/in/ricardo-agnelo-oliveira" alt="Ricardo Agnelo">
+        <img src="https://img.shields.io/badge/Ricardo-Agnelo-orange?style=for-the-badge&logo=CoffeeScript"/>
+    </a>
+</p>
