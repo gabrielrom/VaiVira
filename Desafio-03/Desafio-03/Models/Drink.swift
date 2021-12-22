@@ -1,6 +1,6 @@
 // Drink.swift
 
-struct Drink: Decodable {
+struct Drink: Decodable, Hashable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id = "idDrink"
         case drink = "strDrink"

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */; };
-		803B0F5B27735DFD00A5ABF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5A27735DFD00A5ABF1 /* ContentView.swift */; };
+		803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */; };
 		803B0F5D27735DFE00A5ABF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */; };
 		803B0F6027735DFE00A5ABF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803B0F5F27735DFE00A5ABF1 /* Preview Assets.xcassets */; };
 		803B0F682773629700A5ABF1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 803B0F672773629700A5ABF1 /* SDWebImage */; };
@@ -22,18 +22,20 @@
 		C157AC7A27736D430010043E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7927736D430010043E /* API.swift */; };
 		C157AC7C27736E530010043E /* CocktailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7B27736E530010043E /* CocktailAPI.swift */; };
 		C157AC7F27736F080010043E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C157AC7E27736F080010043E /* Alamofire */; };
+		EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		803B0F5527735DFD00A5ABF1 /* Desafio-03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-03.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desafio_03App.swift; sourceTree = "<group>"; };
-		803B0F5A27735DFD00A5ABF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksView.swift; sourceTree = "<group>"; };
 		803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		803B0F5F27735DFE00A5ABF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C157AC7427736B400010043E /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C157AC7627736D180010043E /* DrinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkResponse.swift; sourceTree = "<group>"; };
 		C157AC7927736D430010043E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C157AC7B27736E530010043E /* CocktailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPI.swift; sourceTree = "<group>"; };
+		EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +75,11 @@
 		803B0F5727735DFD00A5ABF1 /* Desafio-03 */ = {
 			isa = PBXGroup;
 			children = (
+				EB6E2E9D2773961100BBF273 /* Views */,
+				EB6E2E9C2773960300BBF273 /* ViewModels */,
 				C157AC7827736D2F0010043E /* Network */,
 				C157AC7327736A770010043E /* Models */,
 				803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */,
-				803B0F5A27735DFD00A5ABF1 /* ContentView.swift */,
 				803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */,
 				803B0F5E27735DFE00A5ABF1 /* Preview Content */,
 			);
@@ -107,6 +110,22 @@
 				C157AC7B27736E530010043E /* CocktailAPI.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EB6E2E9C2773960300BBF273 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EB6E2E9D2773961100BBF273 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +215,9 @@
 			files = (
 				C157AC7C27736E530010043E /* CocktailAPI.swift in Sources */,
 				C157AC7527736B400010043E /* Drink.swift in Sources */,
+				EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */,
 				C157AC7727736D180010043E /* DrinkResponse.swift in Sources */,
-				803B0F5B27735DFD00A5ABF1 /* ContentView.swift in Sources */,
+				803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */,
 				803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */,
 				C157AC7A27736D430010043E /* API.swift in Sources */,
 			);

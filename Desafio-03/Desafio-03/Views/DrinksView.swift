@@ -8,13 +8,9 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-class ViewModelTeste: ObservableObject {
-    @Published var grid:Bool = true
-}
-
-struct ContentView: View {
+struct DrinksView: View {
     
-    @StateObject var viewModel: ViewModelTeste
+    @StateObject var viewModel: DrinksViewModel
     
     var columns = [
         GridItem(.flexible()),
@@ -22,15 +18,12 @@ struct ContentView: View {
         GridItem(.flexible())
     ]
     
-    var items = [0, 1, 2, 4, 5, 6]
-    
-    
     fileprivate func gridFormat() -> some View {
         return ScrollView {
             LazyVGrid(columns: columns, alignment: .center) {
-                ForEach(items, id: \.self) { _ in
+                ForEach(self.viewModel.drinks, id: \.self) { drink in
                     VStack(alignment: .center) {
-                        WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg"))
+                        WebImage(url: URL(string: drink.drinkThumb))
                             .resizable()
                             .placeholder {
                                 Rectangle().foregroundColor(.gray)
@@ -39,7 +32,7 @@ struct ContentView: View {
                             .scaledToFit()
                             .cornerRadius(4)
                             .frame(width: 70)
-                        Text("Nome")
+                        Text(drink.drink)
                             .fontWeight(.semibold)
                             .lineLimit(1)
                     }
@@ -52,9 +45,9 @@ struct ContentView: View {
     fileprivate func listFormat2() -> some View {
         return ScrollView {
             LazyVGrid(columns: [GridItem(.flexible())], alignment: .leading) {
-                ForEach(items, id: \.self) { _ in
+                ForEach(self.viewModel.drinks, id: \.self) { drink in
                     HStack() {
-                        WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg"))
+                        WebImage(url: URL(string: drink.drinkThumb))
                             .resizable()
                             .placeholder {
                                 Rectangle().foregroundColor(.gray)
@@ -63,7 +56,7 @@ struct ContentView: View {
                             .scaledToFit()
                             .cornerRadius(4)
                             .frame(width: 70)
-                        Text("Nome")
+                        Text(drink.drink)
                             .fontWeight(.semibold)
                             .lineLimit(1)
                     }
@@ -74,9 +67,9 @@ struct ContentView: View {
     }
     
     fileprivate func listFormat() -> some View {
-        return List(0..<items.count) { _ in
+        return List(self.viewModel.drinks) { drink in
             HStack {
-                WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg"))
+                WebImage(url: URL(string: drink.drinkThumb))
                     .resizable()
                     .placeholder {
                         Rectangle().foregroundColor(.gray)
@@ -86,15 +79,10 @@ struct ContentView: View {
                     .cornerRadius(4)
                     .frame(width: 70)
                 VStack(alignment: .leading) {
-                    Text("Nome: ")
+                    Text(drink.drink)
                         .fontWeight(.semibold)
                         .lineLimit(1)
                 }
-            }
-        }
-        .onAppear {
-            CocktailAPI().getDrinks { response in
-                debugPrint(response?.drinks)
             }
         }
     }
@@ -104,22 +92,22 @@ struct ContentView: View {
         NavigationView {
             if self.viewModel.grid {
                 gridFormat()
-                    .navigationTitle("ZéDoDrink")
+                    .navigationTitle("VaiVira")
                     .toolbar {
                         Button {
                             self.viewModel.grid = false
                         } label: {
-                            Image(systemName: "square.grid.2x2")
+                            Image(systemName: "list.bullet")
                         }
                     }
             } else {
                 listFormat()
-                    .navigationTitle("ZéDoDrink")
+                    .navigationTitle("VaiVira")
                     .toolbar {
                         Button {
                             self.viewModel.grid = true
                         } label: {
-                            Image(systemName: "list.bullet")
+                            Image(systemName: "square.grid.2x2")
                         }
                     }
             }
@@ -130,6 +118,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ViewModelTeste())
+        DrinksView(viewModel: DrinksViewModel())
     }
 }
