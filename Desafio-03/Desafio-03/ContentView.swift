@@ -23,6 +23,11 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear {
+            CocktailAPI().getDrinks { response in
+                debugPrint(response)
+            }
+        }
     }
 }
 
