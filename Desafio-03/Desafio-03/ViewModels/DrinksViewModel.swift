@@ -23,7 +23,5 @@ class DrinksViewModel: ObservableObject {
                 self.drinks = drinks
             }
         }
-    }
-    
-    
+    }    
 }
