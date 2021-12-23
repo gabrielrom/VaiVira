@@ -18,6 +18,11 @@
 		803B0F71277362E800A5ABF1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 803B0F70277362E800A5ABF1 /* RxSwift */; };
 		803B0F742773637400A5ABF1 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 803B0F732773637400A5ABF1 /* SDWebImageSwiftUI */; };
 		803B0F762773A9FA00A5ABF1 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 803B0F752773A9FA00A5ABF1 /* readme.md */; };
+		81AD93B82774D054008EA58F /* DrinkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93B72774D054008EA58F /* DrinkDetails.swift */; };
+		81AD93BA2774D2B2008EA58F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93B92774D2B2008EA58F /* Ingredient.swift */; };
+		81AD93BC2774E595008EA58F /* DrinkDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93BB2774E595008EA58F /* DrinkDetailsViewModel.swift */; };
+		81AD93BF2774EB86008EA58F /* Stash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93BD2774EB86008EA58F /* Stash.xcdatamodeld */; };
+		81AD93C32774F060008EA58F /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93C22774F060008EA58F /* PersistenceController.swift */; };
 		C157AC7527736B400010043E /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7427736B400010043E /* Drink.swift */; };
 		C157AC7727736D180010043E /* DrinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7627736D180010043E /* DrinkResponse.swift */; };
 		C157AC7A27736D430010043E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7927736D430010043E /* API.swift */; };
@@ -33,6 +38,11 @@
 		803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		803B0F5F27735DFE00A5ABF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		803B0F752773A9FA00A5ABF1 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = readme.md; path = ../readme.md; sourceTree = "<group>"; };
+		81AD93B72774D054008EA58F /* DrinkDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetails.swift; sourceTree = "<group>"; };
+		81AD93B92774D2B2008EA58F /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		81AD93BB2774E595008EA58F /* DrinkDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsViewModel.swift; sourceTree = "<group>"; };
+		81AD93BE2774EB86008EA58F /* Stash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stash.xcdatamodel; sourceTree = "<group>"; };
+		81AD93C22774F060008EA58F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		C157AC7427736B400010043E /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C157AC7627736D180010043E /* DrinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkResponse.swift; sourceTree = "<group>"; };
 		C157AC7927736D430010043E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -78,6 +88,7 @@
 		803B0F5727735DFD00A5ABF1 /* Desafio-03 */ = {
 			isa = PBXGroup;
 			children = (
+				81AD93C02774F028008EA58F /* Storage */,
 				EB6E2E9D2773961100BBF273 /* Views */,
 				EB6E2E9C2773960300BBF273 /* ViewModels */,
 				C157AC7827736D2F0010043E /* Network */,
@@ -97,11 +108,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		81AD93C02774F028008EA58F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				81AD93C12774F03A008EA58F /* Persistences */,
+				81AD93BD2774EB86008EA58F /* Stash.xcdatamodeld */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		81AD93C12774F03A008EA58F /* Persistences */ = {
+			isa = PBXGroup;
+			children = (
+				81AD93C22774F060008EA58F /* PersistenceController.swift */,
+			);
+			path = Persistences;
+			sourceTree = "<group>";
+		};
 		C157AC7327736A770010043E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C157AC7427736B400010043E /* Drink.swift */,
 				C157AC7627736D180010043E /* DrinkResponse.swift */,
+				81AD93B72774D054008EA58F /* DrinkDetails.swift */,
+				81AD93B92774D2B2008EA58F /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */,
+				81AD93BB2774E595008EA58F /* DrinkDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -219,10 +250,15 @@
 			files = (
 				C157AC7C27736E530010043E /* CocktailAPI.swift in Sources */,
 				C157AC7527736B400010043E /* Drink.swift in Sources */,
+				81AD93BA2774D2B2008EA58F /* Ingredient.swift in Sources */,
+				81AD93C32774F060008EA58F /* PersistenceController.swift in Sources */,
 				EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */,
+				81AD93BC2774E595008EA58F /* DrinkDetailsViewModel.swift in Sources */,
+				81AD93B82774D054008EA58F /* DrinkDetails.swift in Sources */,
 				C157AC7727736D180010043E /* DrinkResponse.swift in Sources */,
 				803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */,
 				803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */,
+				81AD93BF2774EB86008EA58F /* Stash.xcdatamodeld in Sources */,
 				C157AC7A27736D430010043E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +543,19 @@
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		81AD93BD2774EB86008EA58F /* Stash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81AD93BE2774EB86008EA58F /* Stash.xcdatamodel */,
+			);
+			currentVersion = 81AD93BE2774EB86008EA58F /* Stash.xcdatamodel */;
+			path = Stash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 803B0F4D27735DFD00A5ABF1 /* Project object */;
 }

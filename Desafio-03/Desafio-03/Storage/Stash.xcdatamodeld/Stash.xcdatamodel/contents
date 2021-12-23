@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteDrink" representedClassName="FavoriteDrink" syncable="YES" codeGenerationType="class">
+        <attribute name="drinkId" optional="YES" attributeType="String"/>
+        <attribute name="drinkName" optional="YES" attributeType="String"/>
+        <attribute name="isAlcoholic" optional="YES" attributeType="String"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IngredientsDrink" inverseName="favoriteDrink" inverseEntity="IngredientsDrink"/>
+    </entity>
+    <entity name="IngredientsDrink" representedClassName="IngredientsDrink" syncable="YES" codeGenerationType="class">
+        <attribute name="measure" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="favoriteDrink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteDrink" inverseName="ingredients" inverseEntity="FavoriteDrink"/>
+    </entity>
+    <elements>
+        <element name="FavoriteDrink" positionX="422.51953125" positionY="-0.6875" width="128" height="103"/>
+        <element name="IngredientsDrink" positionX="731.19921875" positionY="30.62109375" width="128" height="88"/>
+    </elements>
+</model>

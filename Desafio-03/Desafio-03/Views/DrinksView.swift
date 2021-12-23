@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct DrinksView: View {
     
     @StateObject var viewModel: DrinksViewModel
+    @ObservedObject var drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: "17216")
     
     var columns = [
         GridItem(.flexible()),
