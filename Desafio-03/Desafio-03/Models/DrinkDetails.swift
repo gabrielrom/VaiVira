@@ -9,7 +9,9 @@ struct DrinkDetails: Decodable, Identifiable {
     let drinkName: String
     let isAlcoholic: String
     let instructions: String
+    let thumb: String
     let ingredients: [Ingredient]
+    let category: String
 }
 
 extension DrinkDetails {
@@ -21,9 +23,8 @@ extension DrinkDetails {
         var ingredients: [Ingredient] = []
         
         while let ingredient = ingredientsDictionary["strIngredient\(index)"] as? String,
-              let measure = ingredientsDictionary["strMeasure\(index)"] as? String,
-              !ingredient.isEmpty,
-              !measure.isEmpty {
+              let measure = ingredientsDictionary["strMeasure\(index)"] ?? "-",
+              !ingredient.isEmpty{
             
             ingredients.append(.init(
                 name: ingredient,
@@ -37,6 +38,8 @@ extension DrinkDetails {
         self.drinkName = ingredientsDictionary["strDrink"] as? String ?? ""
         self.isAlcoholic = ingredientsDictionary["strAlcoholic"] as? String ?? ""
         self.instructions = ingredientsDictionary["strInstructions"] as? String ?? ""
+        self.thumb = ingredientsDictionary["strDrinkThumb"] as? String ?? ""
+        self.category = ingredientsDictionary["strCategory"] as? String ?? ""
     }
     
 }

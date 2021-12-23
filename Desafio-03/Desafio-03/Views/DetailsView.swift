@@ -13,6 +13,14 @@ struct DetailsView: View {
     // REMOVER
     @State var bookmarkedDrinks:[Drink] = []
     @State var drinksContainsDrink = true
+    @ObservedObject var drinkDetailsViewModel: DrinkDetailsViewModel
+    
+    let drinkId: String
+    
+    init(drinkId: String) {
+        self.drinkId = drinkId
+        self.drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: drinkId)
+    }
     
     let ingredientes = ["Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt"]
     let quantidades = ["1 1/2 oz ", "1/2 f ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-"]
@@ -20,7 +28,7 @@ struct DetailsView: View {
     
     var body: some View {
         VStack {
-            WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"))
+            WebImage(url: URL(string: drinkDetailsViewModel.drinkDetails!.thumb))
                 .resizable()
                 .placeholder {
                     Rectangle().foregroundColor(.gray)
@@ -40,7 +48,7 @@ struct DetailsView: View {
                         .font(.title2)
                         .padding(.vertical, 0)
                     
-                    Text("Ordinário")
+                    Text(drinkDetailsViewModel.drinkDetails!.category)
                         .padding(.vertical, 1)
                 }
                 VStack(alignment: .center) {
@@ -49,7 +57,7 @@ struct DetailsView: View {
                         .font(.title2)
                         .padding(.vertical, 0)
 
-                    Text("Alcoolico")
+                    Text(drinkDetailsViewModel.drinkDetails!.isAlcoholic)
                         .padding(.vertical, 1)
                 }
             }
@@ -72,10 +80,10 @@ struct DetailsView: View {
             Spacer()
             
             ScrollView {
-                ForEach(Array(zip(ingredientes, quantidades)), id: \.0) { line in
+                ForEach(drinkDetailsViewModel.drinkDetails!.ingredients, id: \.id) { ingredient in
                     
                     HStack(alignment: .top, spacing: 100) {
-                        Text(line.0)
+                        Text(ingredient.name)
                                 .bold()
                                 .font(.title3)
                                 .multilineTextAlignment(.center)
@@ -85,7 +93,7 @@ struct DetailsView: View {
                                 .padding(.top, 3)
                                 .frame(width: 100)
 
-                        Text(line.1)
+                        Text(ingredient.measure)
                                 .bold()
                                 .font(.callout)
                                 .multilineTextAlignment(.center)
@@ -100,7 +108,7 @@ struct DetailsView: View {
             
 
             
-        .navigationTitle("Nome do drink")
+            .navigationTitle(drinkDetailsViewModel.drinkDetails!.drinkName)
             .toolbar {
                 if drinksContainsDrink {
                     Button {
@@ -125,6 +133,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView()
+        DetailsView(drinkId: "11078")
     }
 }
