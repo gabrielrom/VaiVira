@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 func listFormat(drinks: [Drink]) -> some View {
     return List(drinks) { drink in
-        Link(destination: drink.getURL()) {
+        NavigationLink(destination: DetailsView()) {
             HStack {
                 WebImage(url: URL(string: drink.drinkThumb))
                     .resizable()
@@ -19,7 +19,7 @@ func listFormat(drinks: [Drink]) -> some View {
                     }
                     .indicator(.activity)
                     .scaledToFit()
-                    .cornerRadius(4)
+                    .cornerRadius(35)
                     .frame(width: 70)
                 VStack(alignment: .leading) {
                     Text(drink.drink)

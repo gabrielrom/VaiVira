@@ -17,7 +17,7 @@ func gridFormat(drinks: [Drink]) -> some View {
     return ScrollView {
         LazyVGrid(columns: columns, alignment: .center) {
             ForEach(drinks, id: \.self) { drink in
-                Link(destination: drink.getURL()) {
+                NavigationLink(destination: DetailsView()) {
                     VStack(alignment: .center) {
                         WebImage(url: URL(string: drink.drinkThumb))
                             .resizable()
@@ -26,9 +26,9 @@ func gridFormat(drinks: [Drink]) -> some View {
                             }
                             .indicator(.activity)
                             .scaledToFit()
-                            .cornerRadius(10)
+                            .cornerRadius(35)
                             .frame(width: 100)
-                            .shadow(color: Color.gray, radius: 25)
+                            .shadow(color: Color.orange, radius: 9)
                         Text(drink.drink)
                             .fontWeight(.semibold)
                             .lineLimit(1)
