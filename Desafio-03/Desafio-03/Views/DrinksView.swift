@@ -21,22 +21,23 @@ struct DrinksView: View {
         return ScrollView {
             LazyVGrid(columns: columns, alignment: .center) {
                 ForEach(self.viewModel.drinks, id: \.self) { drink in
-                    VStack(alignment: .center) {
-                        WebImage(url: URL(string: drink.drinkThumb))
-                            .resizable()
-                            .placeholder {
-                                Rectangle().foregroundColor(.gray)
-                            }
-                            .indicator(.activity)
-                            .scaledToFit()
-                            .cornerRadius(10)
-                            .frame(width: 100)
-                            .shadow(color: Color.gray, radius: 25)
-                        Text(drink.drink)
-                            .fontWeight(.semibold)
-                            .lineLimit(1)
+                    Link(destination: drink.getURL()) {
+                        VStack(alignment: .center) {
+                            WebImage(url: URL(string: drink.drinkThumb))
+                                .resizable()
+                                .placeholder {
+                                    Rectangle().foregroundColor(.gray)
+                                }
+                                .indicator(.activity)
+                                .scaledToFit()
+                                .cornerRadius(10)
+                                .frame(width: 100)
+                                .shadow(color: Color.gray, radius: 25)
+                            Text(drink.drink)
+                                .fontWeight(.semibold)
+                                .lineLimit(1)
+                        }
                     }
-                    
                 }
             }
         }
@@ -47,21 +48,23 @@ struct DrinksView: View {
         return ScrollView {
             LazyVGrid(columns: [GridItem(.flexible())], alignment: .leading) {
                 ForEach(self.viewModel.drinks, id: \.self) { drink in
-                    HStack() {
-                        WebImage(url: URL(string: drink.drinkThumb))
-                            .resizable()
-                            .placeholder {
-                                Rectangle().foregroundColor(.gray)
-                            }
-                            .indicator(.activity)
-                            .scaledToFit()
-                            .cornerRadius(4)
-                            .frame(width: 100)
-                        Text(drink.drink)
-                            .fontWeight(.semibold)
-                            .lineLimit(1)
+                    Link(destination: drink.getURL()) {
+                        HStack() {
+                            WebImage(url: URL(string: drink.drinkThumb))
+                                .resizable()
+                                .placeholder {
+                                    Rectangle().foregroundColor(.gray)
+                                }
+                                .indicator(.activity)
+                                .scaledToFit()
+                                .cornerRadius(4)
+                                .frame(width: 100)
+                            Text(drink.drink)
+                                .fontWeight(.semibold)
+                                .lineLimit(1)
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
                     }
-                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
                 }
             }
         }
@@ -69,20 +72,22 @@ struct DrinksView: View {
     
     fileprivate func listFormat() -> some View {
         return List(self.viewModel.drinks) { drink in
-            HStack {
-                WebImage(url: URL(string: drink.drinkThumb))
-                    .resizable()
-                    .placeholder {
-                        Rectangle().foregroundColor(.gray)
+            Link(destination: drink.getURL()) {
+                HStack {
+                    WebImage(url: URL(string: drink.drinkThumb))
+                        .resizable()
+                        .placeholder {
+                            Rectangle().foregroundColor(.gray)
+                        }
+                        .indicator(.activity)
+                        .scaledToFit()
+                        .cornerRadius(4)
+                        .frame(width: 70)
+                    VStack(alignment: .leading) {
+                        Text(drink.drink)
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
                     }
-                    .indicator(.activity)
-                    .scaledToFit()
-                    .cornerRadius(4)
-                    .frame(width: 70)
-                VStack(alignment: .leading) {
-                    Text(drink.drink)
-                        .fontWeight(.semibold)
-                        .lineLimit(1)
                 }
             }
         }
