@@ -9,23 +9,19 @@ import SDWebImageSwiftUI
 import SwiftUI
 
 struct DetailsView: View {
+    var drinkDetailsViewModel: DrinkDetailsViewModel
     
-    // REMOVER
-    @State var bookmarkedDrinks:[Drink] = []
-    @State var drinksContainsDrink = true
-    @ObservedObject var drinkDetailsViewModel: DrinkDetailsViewModel
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     let drinkId: String
+    let isFavorited: Bool
     
-    init(drinkId: String) {
+    init(drinkId: String, isFavorited: Bool = false) {
         self.drinkId = drinkId
+        self.isFavorited = isFavorited
         self.drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: drinkId)
     }
-    
-    let ingredientes = ["Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt"]
-    let quantidades = ["1 1/2 oz ", "1/2 f ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-"]
-    // É SÓ PRA SERVIR DE EXEMPLO
-    
+
     var body: some View {
         VStack {
             WebImage(url: URL(string: drinkDetailsViewModel.drinkDetails!.thumb))
@@ -107,22 +103,34 @@ struct DetailsView: View {
             }.padding(30)
             
 
-            
             .navigationTitle(drinkDetailsViewModel.drinkDetails!.drinkName)
             .toolbar {
-                if drinksContainsDrink {
+                if isFavorited {
                     Button {
-                        print("DESfavoritou")
-                        drinksContainsDrink = false // REMOVEr DO ARRAY DE DRINKS favoritos
-                        //                        bookmarkedDrinks.remove(at: bookmarkedDrinks.firstIndex(of: drink))
+                        
                     } label : {
                         Image(systemName: "star.fill")
                     }
                 } else {
                     Button {
-                        print("FAVoritou")
-                        drinksContainsDrink = true // adicionar no ARRAY DE DRINKS favoritos
-                        //                        bookmarkedDrinks.append(drink)
+                        let favoriteDrink = FavoriteDrink(context: managedObjectContext)
+                        var ingredients = [IngredientsDrink]()
+                        
+                        for ingredient in drinkDetailsViewModel.drinkDetails!.ingredients {
+                            let ingredientEntity = IngredientsDrink(context: managedObjectContext)
+                            
+                            ingredientEntity.name = ingredient.name
+                            
+                            ingredients.append(ingredientEntity)
+                        }
+                        
+                        
+                        favoriteDrink.drinkId = drinkDetailsViewModel.drinkDetails!.id
+                        favoriteDrink.drinkName = drinkDetailsViewModel.drinkDetails!.drinkName
+                        favoriteDrink.isAlcoholic = drinkDetailsViewModel.drinkDetails!.isAlcoholic
+                        favoriteDrink.ingredients = NSSet(array: ingredients)
+                        
+                        PersistenceController.shared.save()
                     } label : {
                         Image(systemName: "star")
                     }
@@ -133,6 +141,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView(drinkId: "11078")
+        DetailsView(drinkId: "11078", isFavorited: false)
     }
 }

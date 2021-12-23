@@ -13,11 +13,18 @@ struct BookmarkView: View {
 //    @StateObject var bookmarkedDrinks: BookmarkedDrinksViewModel
     var bookmarkedDrinks: BookmarkedDrinksViewModel
     
+    var favoritedDrinks: FetchedResults<FavoriteDrink>
+    
+    init(bookMarkedDrinks: BookmarkedDrinksViewModel, favoritedDrinks: FetchedResults<FavoriteDrink>) {
+        self.favoritedDrinks = favoritedDrinks
+        self.bookmarkedDrinks = bookMarkedDrinks
+    }
+    
     var body: some View {
         
         NavigationView {
             if self.bookmarkedDrinks.grid {
-                gridFormat(drinks: self.bookmarkedDrinks.drinks)
+                gridFormat(drinks: self.bookmarkedDrinks.drinks, favoriteDrinks: favoritedDrinks)
                     .navigationTitle("1: \(String(self.bookmarkedDrinks.grid))")
                     .toolbar {
                             Button {

@@ -12,18 +12,25 @@ struct DrinksView: View {
     
     @StateObject var viewModel: DrinksViewModel
     @StateObject var bookmarkedDrinks = BookmarkedDrinksViewModel()
+    
+//    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(entity: FavoriteDrink.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \FavoriteDrink.drinkId, ascending: true)]) var favoriteDrinks: FetchedResults<FavoriteDrink>
 
         
     var body: some View {
         
         NavigationView {
             if self.viewModel.grid {
-                gridFormat(drinks: viewModel.drinks)
+                gridFormat(
+                    drinks: viewModel.drinks,
+                    favoriteDrinks: favoriteDrinks)
                     .navigationTitle("VaiVira")
                     .toolbar {
                         ToolbarItemGroup(placement: .navigationBarTrailing, content:  {
                             
-                            NavigationLink(destination: BookmarkView(bookmarkedDrinks: bookmarkedDrinks)) {
+                            NavigationLink(destination: BookmarkView(bookMarkedDrinks: bookmarkedDrinks, favoritedDrinks: favoriteDrinks)) {
                                 Image(systemName: "list.star")
                             }
                             
@@ -40,7 +47,7 @@ struct DrinksView: View {
                     .toolbar {
                         ToolbarItemGroup(placement: .navigationBarTrailing, content:  {
                             
-                            NavigationLink(destination: BookmarkView(bookmarkedDrinks: bookmarkedDrinks)) {
+                            NavigationLink(destination: BookmarkView(bookMarkedDrinks: bookmarkedDrinks, favoritedDrinks: favoriteDrinks)) {
                                 Image(systemName: "list.star")
                             }
                                                        
