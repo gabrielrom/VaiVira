@@ -11,115 +11,46 @@ import SDWebImageSwiftUI
 struct DrinksView: View {
     
     @StateObject var viewModel: DrinksViewModel
-    @ObservedObject var drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: "17216")
-    
-    var columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
-    fileprivate func gridFormat() -> some View {
-        return ScrollView {
-            LazyVGrid(columns: columns, alignment: .center) {
-                ForEach(self.viewModel.drinks, id: \.self) { drink in
-                    Link(destination: drink.getURL()) {
-                        VStack(alignment: .center) {
-                            WebImage(url: URL(string: drink.drinkThumb))
-                                .resizable()
-                                .placeholder {
-                                    Rectangle().foregroundColor(.gray)
-                                }
-                                .indicator(.activity)
-                                .scaledToFit()
-                                .cornerRadius(10)
-                                .frame(width: 100)
-                                .shadow(color: Color.gray, radius: 25)
-                            Text(drink.drink)
-                                .fontWeight(.semibold)
-                                .lineLimit(1)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    fileprivate func listFormat2() -> some View {
-        return ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible())], alignment: .leading) {
-                ForEach(self.viewModel.drinks, id: \.self) { drink in
-                    Link(destination: drink.getURL()) {
-                        HStack() {
-                            WebImage(url: URL(string: drink.drinkThumb))
-                                .resizable()
-                                .placeholder {
-                                    Rectangle().foregroundColor(.gray)
-                                }
-                                .indicator(.activity)
-                                .scaledToFit()
-                                .cornerRadius(4)
-                                .frame(width: 100)
-                            Text(drink.drink)
-                                .fontWeight(.semibold)
-                                .lineLimit(1)
-                        }
-                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
-                    }
-                }
-            }
-        }
-    }
-    
-    fileprivate func listFormat() -> some View {
-        return List(self.viewModel.drinks) { drink in
-            Link(destination: drink.getURL()) {
-                HStack {
-                    WebImage(url: URL(string: drink.drinkThumb))
-                        .resizable()
-                        .placeholder {
-                            Rectangle().foregroundColor(.gray)
-                        }
-                        .indicator(.activity)
-                        .scaledToFit()
-                        .cornerRadius(4)
-                        .frame(width: 70)
-                    VStack(alignment: .leading) {
-                        Text(drink.drink)
-                            .fontWeight(.semibold)
-                            .lineLimit(1)
-                    }
-                }
-            }
-        }
-    }
-    
+    @StateObject var bookmarkedDrinks = BookmarkedDrinksViewModel()
+
+        
     var body: some View {
         
         NavigationView {
             if self.viewModel.grid {
-                gridFormat()
+                gridFormat(drinks: viewModel.drinks)
                     .navigationTitle("VaiVira")
                     .toolbar {
-                        Button {
-                            self.viewModel.grid = false
-                        } label: {
-                            Image(systemName: "list.bullet")
-                        }
+                        ToolbarItemGroup(placement: .navigationBarTrailing, content:  {
+                            
+                            NavigationLink(destination: BookmarkView(bookmarkedDrinks: bookmarkedDrinks)) {
+                                Image(systemName: "list.star")
+                            }
+                            
+                            Button {
+                                self.viewModel.grid = false
+                            } label: { Image(systemName: "rectangle.grid.1x2") }
+                        })
                     }
+                
             } else {
-                listFormat()
+                listFormat(drinks: viewModel.drinks)
                     .navigationTitle("VaiVira")
+                
                     .toolbar {
-                        Button {
-                            self.viewModel.grid = true
-                        } label: {
-                            Image(systemName: "square.grid.2x2")
-                        }
+                        ToolbarItemGroup(placement: .navigationBarTrailing, content:  {
+                            
+                            NavigationLink(destination: BookmarkView(bookmarkedDrinks: bookmarkedDrinks)) {
+                                Image(systemName: "list.star")
+                            }
+                                                       
+                            Button {
+                                self.viewModel.grid = true
+                            } label: { Image(systemName: "square.grid.2x2") }
+                        })
                     }
             }
         }
-        
     }
 }
 

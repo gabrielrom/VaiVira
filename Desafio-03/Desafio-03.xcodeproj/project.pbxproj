@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1708682774BCB000DE17A2 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1708672774BCB000DE17A2 /* DetailsView.swift */; };
+		4E17086A2774C21400DE17A2 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1708692774C21400DE17A2 /* GridView.swift */; };
+		4E17086C2774C3D700DE17A2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17086B2774C3D700DE17A2 /* ListView.swift */; };
+		4E17086E2774C4CE00DE17A2 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */; };
+		4E1708722774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1708712774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift */; };
 		803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */; };
 		803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */; };
 		803B0F5D27735DFE00A5ABF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */; };
@@ -32,6 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E1708672774BCB000DE17A2 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		4E1708692774C21400DE17A2 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		4E17086B2774C3D700DE17A2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		4E1708712774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedDrinksViewModel.swift; sourceTree = "<group>"; };
 		803B0F5527735DFD00A5ABF1 /* Desafio-03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-03.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desafio_03App.swift; sourceTree = "<group>"; };
 		803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksView.swift; sourceTree = "<group>"; };
@@ -150,6 +160,7 @@
 			children = (
 				EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */,
 				81AD93BB2774E595008EA58F /* DrinkDetailsViewModel.swift */,
+				4E1708712774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -158,6 +169,10 @@
 			isa = PBXGroup;
 			children = (
 				803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */,
+				4E1708672774BCB000DE17A2 /* DetailsView.swift */,
+				4E1708692774C21400DE17A2 /* GridView.swift */,
+				4E17086B2774C3D700DE17A2 /* ListView.swift */,
+				4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,10 +270,16 @@
 				EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */,
 				81AD93BC2774E595008EA58F /* DrinkDetailsViewModel.swift in Sources */,
 				81AD93B82774D054008EA58F /* DrinkDetails.swift in Sources */,
+				4E17086C2774C3D700DE17A2 /* ListView.swift in Sources */,
+				EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */,
+				4E1708722774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift in Sources */,
 				C157AC7727736D180010043E /* DrinkResponse.swift in Sources */,
 				803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */,
+				4E1708682774BCB000DE17A2 /* DetailsView.swift in Sources */,
 				803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */,
 				81AD93BF2774EB86008EA58F /* Stash.xcdatamodeld in Sources */,
+				4E17086E2774C4CE00DE17A2 /* BookmarkView.swift in Sources */,
+				4E17086A2774C21400DE17A2 /* GridView.swift in Sources */,
 				C157AC7A27736D430010043E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
