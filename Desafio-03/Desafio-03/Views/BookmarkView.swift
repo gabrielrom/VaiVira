@@ -11,34 +11,27 @@ import SDWebImageSwiftUI
 struct BookmarkView: View {
     
 //    @StateObject var bookmarkedDrinks: BookmarkedDrinksViewModel
-    var bookmarkedDrinks: BookmarkedDrinksViewModel
+    @ObservedObject var bookmarkedDrinks: BookmarkedDrinksViewModel
     
     var body: some View {
         
         NavigationView {
-            if self.bookmarkedDrinks.grid {
-                gridFormat(drinks: self.bookmarkedDrinks.drinks)
-                    .navigationTitle("1: \(String(self.bookmarkedDrinks.grid))")
+            if bookmarkedDrinks.grid {
+                gridFormat(drinks: bookmarkedDrinks.drinks)
+                    .navigationTitle("1: \(String(bookmarkedDrinks.grid))")
                     .toolbar {
                             Button {
-                                print(self.bookmarkedDrinks.grid)
-                                self.bookmarkedDrinks.grid = false
-                                print(self.bookmarkedDrinks.grid)
-                                print("antes")
-
+                                bookmarkedDrinks.grid = !bookmarkedDrinks.grid
                             } label: { Image(systemName: "rectangle.grid.1x2") }
                     }
                 
             } else {
                 listFormat(drinks: bookmarkedDrinks.drinks)
-                    .navigationTitle("2: \(String(self.bookmarkedDrinks.grid))")
-
+                    .navigationTitle("2: \(String(bookmarkedDrinks.grid))")
+                    
                     .toolbar {
                             Button {
-
-                                self.bookmarkedDrinks.grid = true
-          
-                                print("depois")
+                                bookmarkedDrinks.grid = !bookmarkedDrinks.grid
                             } label: { Image(systemName: "square.grid.2x2") }
                     }
             }
