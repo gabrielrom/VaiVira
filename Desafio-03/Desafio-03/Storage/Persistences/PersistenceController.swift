@@ -34,4 +34,15 @@ struct PersistenceController {
         save(completion: completion)
     }
     
+    func deleteAllEntities() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavoriteDrink")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try container.viewContext.execute(deleteRequest)
+        } catch let error as NSError {
+            print("Error: \(error)")
+        }
+    }
+    
 }

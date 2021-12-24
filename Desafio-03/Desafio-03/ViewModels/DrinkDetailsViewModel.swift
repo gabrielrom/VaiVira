@@ -6,7 +6,8 @@ class DrinkDetailsViewModel: ObservableObject {
                                                   isAlcoholic: "",
                                                   instructions: "",
                                                   ingredients: [],
-                                                  thumb: "")
+                                                  thumb: "",
+                                                  category: "")
     
     let apiService: API
     

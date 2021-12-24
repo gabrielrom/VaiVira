@@ -13,13 +13,13 @@ let col = [
     GridItem(.flexible())
 ]
 
-func bookmarkedGridViewFormat(drinks: [DrinkDetails]) -> some View {
+func bookmarkedGridViewFormat(drinks: [BookmarkedModel]) -> some View {
     return ScrollView {
         LazyVGrid(columns: col, alignment: .center) {
             ForEach(drinks, id: \.id) { drink in
                 NavigationLink(destination: DetailsView(drinkId: drink.id)) {
                     VStack(alignment: .center) {
-                        WebImage(url: URL(string: drink.thumb)!)
+                        WebImage(url: URL(string: drink.thumb))
                             .resizable()
                             .placeholder {
                                 Rectangle().foregroundColor(.gray)

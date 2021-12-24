@@ -29,6 +29,7 @@
 		81AD93BC2774E595008EA58F /* DrinkDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93BB2774E595008EA58F /* DrinkDetailsViewModel.swift */; };
 		81AD93BF2774EB86008EA58F /* Stash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93BD2774EB86008EA58F /* Stash.xcdatamodeld */; };
 		81AD93C32774F060008EA58F /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD93C22774F060008EA58F /* PersistenceController.swift */; };
+		81FB7DC127755D9D00E46090 /* BookmarkedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB7DC027755D9D00E46090 /* BookmarkedModel.swift */; };
 		C157AC7527736B400010043E /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7427736B400010043E /* Drink.swift */; };
 		C157AC7727736D180010043E /* DrinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7627736D180010043E /* DrinkResponse.swift */; };
 		C157AC7A27736D430010043E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7927736D430010043E /* API.swift */; };
@@ -55,6 +56,7 @@
 		81AD93BB2774E595008EA58F /* DrinkDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsViewModel.swift; sourceTree = "<group>"; };
 		81AD93BE2774EB86008EA58F /* Stash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stash.xcdatamodel; sourceTree = "<group>"; };
 		81AD93C22774F060008EA58F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		81FB7DC027755D9D00E46090 /* BookmarkedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedModel.swift; sourceTree = "<group>"; };
 		C157AC7427736B400010043E /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		C157AC7627736D180010043E /* DrinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkResponse.swift; sourceTree = "<group>"; };
 		C157AC7927736D430010043E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				C157AC7627736D180010043E /* DrinkResponse.swift */,
 				81AD93B72774D054008EA58F /* DrinkDetails.swift */,
 				81AD93B92774D2B2008EA58F /* Ingredient.swift */,
+				81FB7DC027755D9D00E46090 /* BookmarkedModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C157AC7527736B400010043E /* Drink.swift in Sources */,
 				81AD93BA2774D2B2008EA58F /* Ingredient.swift in Sources */,
 				81AD93C32774F060008EA58F /* PersistenceController.swift in Sources */,
+				81FB7DC127755D9D00E46090 /* BookmarkedModel.swift in Sources */,
 				EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */,
 				81AD93BC2774E595008EA58F /* DrinkDetailsViewModel.swift in Sources */,
 				81AD93B82774D054008EA58F /* DrinkDetails.swift in Sources */,

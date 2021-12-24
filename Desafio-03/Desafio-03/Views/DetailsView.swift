@@ -19,21 +19,12 @@ struct DetailsView: View {
         }
     }
         
-    var bookmarkedDrinksViewModel = BookmarkedDrinksViewModel()
     var drinkDetailsViewModel: DrinkDetailsViewModel
     
     init(drinkId: String) {
         self.drinkId = drinkId
         self.drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: drinkId)
     }
-    
-    // REMOVER
-//    @State var bookmarkedDrinks:[Drink] = []
-//    @State var drinksContainsDrink = true
-    
-//    let ingredientes = ["Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt"]
-//    let quantidades = ["1 1/2 oz ", "1/2 f ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-"]
-    // É SÓ PRA SERVIR DE EXEMPLO
     
     var body: some View {
         VStack {
@@ -57,7 +48,7 @@ struct DetailsView: View {
                         .font(.title2)
                         .padding(.vertical, 0)
                     
-                    Text("Ordinário")
+                    Text(drinkDetailsViewModel.drinkDetails.category)
                         .padding(.vertical, 1)
                 }
                 VStack(alignment: .center) {
@@ -134,9 +125,9 @@ struct DetailsView: View {
                         favoriteDrinkEntity.isAlcoholic = drinkDetailsViewModel.drinkDetails.isAlcoholic
                         favoriteDrinkEntity.isFavorite = true
                         favoriteDrinkEntity.urlImage = drinkDetailsViewModel.drinkDetails.thumb
+                        favoriteDrinkEntity.category = drinkDetailsViewModel.drinkDetails.category
                         
                         PersistenceController.shared.save()
-                        bookmarkedDrinksViewModel.drinks.append(drinkDetailsViewModel.drinkDetails)
                         
                     } label : {
                         Image(systemName: "star")

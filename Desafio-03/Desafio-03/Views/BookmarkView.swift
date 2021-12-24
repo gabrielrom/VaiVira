@@ -10,22 +10,13 @@ import SDWebImageSwiftUI
 
 struct BookmarkView: View {
     
-//    @StateObject var bookmarkedDrinks: BookmarkedDrinksViewModel
     @ObservedObject var bookmarkedDrinks: BookmarkedDrinksViewModel
     @FetchRequest(entity: FavoriteDrink.entity(), sortDescriptors: []) var entitiesFavorited: FetchedResults<FavoriteDrink>
     
-    
     var body: some View {
-        
         NavigationView {
             if self.bookmarkedDrinks.grid {
-                
-                var detailsView = [DrinkDetails]()
-                entitiesFavorited.forEach { value in
-                    detailsView.append(DrinkDetails())
-                }
-                
-                bookmarkedGridViewFormat(drinks:)
+                bookmarkedGridViewFormat(drinks: FavoriteDrinkToBookmarkedModel(entities: entitiesFavorited))
                     .navigationTitle("Bookmarked Drinks")
                     .toolbar {
                             Button {
@@ -33,7 +24,8 @@ struct BookmarkView: View {
                                 self.bookmarkedDrinks.grid = false
                             } label: { Image(systemName: "rectangle.grid.1x2") }
                     }
-                
+            } else {
+                EmptyView()
             }
 //            else {
 //                listFormat(drinks: bookmarkedDrinks.drinks)
@@ -47,6 +39,27 @@ struct BookmarkView: View {
 //            }
         }
     }
+}
+
+extension BookmarkView {
+    
+    func FavoriteDrinkToBookmarkedModel(entities: FetchedResults<FavoriteDrink>) -> [BookmarkedModel] {
+        var detailsView = [BookmarkedModel]()
+        
+        entitiesFavorited.forEach { value in
+            detailsView.append(BookmarkedModel(
+                id: value.drinkId ?? "",
+                drinkName: value.drinkName ?? "",
+                isAlcoholic: value.isAlcoholic ?? "",
+                instructions: "",
+                ingredients: [],
+                thumb: value.urlImage ?? "")
+            )
+        }
+        
+        return detailsView
+    }
+    
 }
 
 //struct ContentView_Previews: PreviewProvider {

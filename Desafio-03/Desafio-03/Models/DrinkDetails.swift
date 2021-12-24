@@ -11,6 +11,7 @@ struct DrinkDetails: Decodable, Identifiable {
     let instructions: String
     let ingredients: [Ingredient]
     let thumb: String
+    let category: String
 }
 
 extension DrinkDetails {
@@ -40,6 +41,7 @@ extension DrinkDetails {
         self.isAlcoholic = ingredientsDictionary["strAlcoholic"] as? String ?? ""
         self.instructions = ingredientsDictionary["strInstructions"] as? String ?? ""
         self.thumb = ingredientsDictionary["strDrinkThumb"] as? String ?? ""
+        self.category = ingredientsDictionary["strCategory"] as? String ?? ""
     }
     
 }
