@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 func listFormat(drinks: [Drink]) -> some View {
     return List(drinks) { drink in
-        NavigationLink(destination: DetailsView()) {
+        NavigationLink(destination: DetailsView(drinkId: drink.id)) {
             HStack {
                 WebImage(url: URL(string: drink.drinkThumb))
                     .resizable()

@@ -4,15 +4,9 @@
         <attribute name="drinkId" optional="YES" attributeType="String"/>
         <attribute name="drinkName" optional="YES" attributeType="String"/>
         <attribute name="isAlcoholic" optional="YES" attributeType="String"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IngredientsDrink" inverseName="favoriteDrink" inverseEntity="IngredientsDrink"/>
-    </entity>
-    <entity name="IngredientsDrink" representedClassName="IngredientsDrink" syncable="YES" codeGenerationType="class">
-        <attribute name="measure" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="favoriteDrink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteDrink" inverseName="ingredients" inverseEntity="FavoriteDrink"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="FavoriteDrink" positionX="422.51953125" positionY="-0.6875" width="128" height="103"/>
-        <element name="IngredientsDrink" positionX="731.19921875" positionY="30.62109375" width="128" height="88"/>
+        <element name="FavoriteDrink" positionX="422.51953125" positionY="-0.6875" width="128" height="89"/>
     </elements>
 </model>

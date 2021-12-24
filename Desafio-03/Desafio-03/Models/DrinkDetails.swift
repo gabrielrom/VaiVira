@@ -5,11 +5,12 @@ struct DrinkData: Decodable {
 }
 
 struct DrinkDetails: Decodable, Identifiable {
-    let id: UUID = UUID()
+    let id: String
     let drinkName: String
     let isAlcoholic: String
     let instructions: String
     let ingredients: [Ingredient]
+    let thumb: String
 }
 
 extension DrinkDetails {
@@ -33,10 +34,12 @@ extension DrinkDetails {
             index += 1
         }
         
+        self.id = ingredientsDictionary["idDrink"] as? String ?? ""
         self.ingredients = ingredients
         self.drinkName = ingredientsDictionary["strDrink"] as? String ?? ""
         self.isAlcoholic = ingredientsDictionary["strAlcoholic"] as? String ?? ""
         self.instructions = ingredientsDictionary["strInstructions"] as? String ?? ""
+        self.thumb = ingredientsDictionary["strDrinkThumb"] as? String ?? ""
     }
     
 }

@@ -1,7 +1,12 @@
 import Foundation
 
 class DrinkDetailsViewModel: ObservableObject {
-    @Published var drinkDetails: DrinkDetails?
+    var drinkDetails: DrinkDetails = DrinkDetails(id: "",
+                                                  drinkName: "",
+                                                  isAlcoholic: "",
+                                                  instructions: "",
+                                                  ingredients: [],
+                                                  thumb: "")
     
     let apiService: API
     
@@ -13,7 +18,9 @@ class DrinkDetailsViewModel: ObservableObject {
     func getDrinkDetails(drinkId: String) {
         apiService.getDrinkDetails(drinkId: drinkId) { response in
             if let drinkDetails = response {
-                self.drinkDetails = drinkDetails.drinks.first
+                guard let drinkDetail = drinkDetails.drinks.first else { return }
+                
+                self.drinkDetails = drinkDetail
             }
         }
     }
