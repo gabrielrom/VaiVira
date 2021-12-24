@@ -9,10 +9,9 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct BookmarkView: View {
-    
     @ObservedObject var bookmarkedDrinks: BookmarkedDrinksViewModel
     @FetchRequest(entity: FavoriteDrink.entity(), sortDescriptors: []) var entitiesFavorited: FetchedResults<FavoriteDrink>
-    
+
     var body: some View {
         NavigationView {
             if self.bookmarkedDrinks.grid {
@@ -22,6 +21,7 @@ struct BookmarkView: View {
                             Button {
                                 print(bookmarkedDrinks.drinks)
                                 self.bookmarkedDrinks.grid = false
+                              
                             } label: { Image(systemName: "rectangle.grid.1x2") }
                     }
             } else {
