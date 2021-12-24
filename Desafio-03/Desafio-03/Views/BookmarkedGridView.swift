@@ -8,18 +8,18 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-var columns = [
+let col = [
     GridItem(.flexible()),
     GridItem(.flexible())
 ]
 
-func gridFormat(drinks: [Drink]) -> some View {
+func bookmarkedGridViewFormat(drinks: [BookmarkedModel]) -> some View {
     return ScrollView {
-        LazyVGrid(columns: columns, alignment: .center) {
-            ForEach(drinks, id: \.self) { drink in
+        LazyVGrid(columns: col, alignment: .center) {
+            ForEach(drinks, id: \.id) { drink in
                 NavigationLink(destination: DetailsView(drinkId: drink.id)) {
                     VStack(alignment: .center) {
-                        WebImage(url: URL(string: drink.drinkThumb))
+                        WebImage(url: URL(string: drink.thumb))
                             .resizable()
                             .placeholder {
                                 Rectangle().foregroundColor(.gray)
@@ -29,7 +29,7 @@ func gridFormat(drinks: [Drink]) -> some View {
                             .cornerRadius(35)
                             .frame(width: 100)
                             .shadow(color: Color.orange, radius: 9)
-                        Text(drink.drink)
+                        Text(drink.drinkName)
                             .fontWeight(.semibold)
                             .lineLimit(1)
                     }

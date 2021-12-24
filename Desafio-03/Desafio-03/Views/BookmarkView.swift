@@ -9,34 +9,57 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct BookmarkView: View {
-    
-//    @StateObject var bookmarkedDrinks: BookmarkedDrinksViewModel
     @ObservedObject var bookmarkedDrinks: BookmarkedDrinksViewModel
-    
+    @FetchRequest(entity: FavoriteDrink.entity(), sortDescriptors: []) var entitiesFavorited: FetchedResults<FavoriteDrink>
+
     var body: some View {
-        
         NavigationView {
-            if bookmarkedDrinks.grid {
-                gridFormat(drinks: bookmarkedDrinks.drinks)
-                    .navigationTitle("1: \(String(bookmarkedDrinks.grid))")
+            if self.bookmarkedDrinks.grid {
+                bookmarkedGridViewFormat(drinks: FavoriteDrinkToBookmarkedModel(entities: entitiesFavorited))
+                    .navigationTitle("Bookmarked Drinks")
                     .toolbar {
                             Button {
-                                bookmarkedDrinks.grid = !bookmarkedDrinks.grid
+                                print(bookmarkedDrinks.drinks)
+                                self.bookmarkedDrinks.grid = false
+                              
                             } label: { Image(systemName: "rectangle.grid.1x2") }
                     }
-                
             } else {
-                listFormat(drinks: bookmarkedDrinks.drinks)
-                    .navigationTitle("2: \(String(bookmarkedDrinks.grid))")
-                    
-                    .toolbar {
-                            Button {
-                                bookmarkedDrinks.grid = !bookmarkedDrinks.grid
-                            } label: { Image(systemName: "square.grid.2x2") }
-                    }
+                EmptyView()
             }
+//            else {
+//                listFormat(drinks: bookmarkedDrinks.drinks)
+//                    .navigationTitle("Bookmarked Drinks")
+//
+//                    .toolbar {
+//                            Button {
+//                                self.bookmarkedDrinks.grid = true
+//                            } label: { Image(systemName: "square.grid.2x2") }
+//                    }
+//            }
         }
     }
+}
+
+extension BookmarkView {
+    
+    func FavoriteDrinkToBookmarkedModel(entities: FetchedResults<FavoriteDrink>) -> [BookmarkedModel] {
+        var detailsView = [BookmarkedModel]()
+        
+        entitiesFavorited.forEach { value in
+            detailsView.append(BookmarkedModel(
+                id: value.drinkId ?? "",
+                drinkName: value.drinkName ?? "",
+                isAlcoholic: value.isAlcoholic ?? "",
+                instructions: "",
+                ingredients: [],
+                thumb: value.urlImage ?? "")
+            )
+        }
+        
+        return detailsView
+    }
+    
 }
 
 //struct ContentView_Previews: PreviewProvider {

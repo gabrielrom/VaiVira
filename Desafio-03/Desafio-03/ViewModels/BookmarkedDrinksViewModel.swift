@@ -8,8 +8,9 @@
 import SwiftUI
 
 class BookmarkedDrinksViewModel: ObservableObject {
-    @Published var drinks: [Drink] = []
-    @Published var grid: Bool = true
+    @Published var drinks: [DrinkDetails] = []
+    @Published var grid:Bool = true
+    
     
     init() {
         self.drinks = []

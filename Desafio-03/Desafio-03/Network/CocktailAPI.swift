@@ -8,6 +8,13 @@ class CocktailAPI: API {
         request(url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass", completion: completion)
     }
     
+    func getDrinkDetails(drinkId: String, completion: @escaping (DrinkData?) -> Void) {
+        request(
+            url: "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=\(drinkId)",
+            completion: completion
+        )
+    }
+    
     
     private func request<T: Decodable>(
         url: String,

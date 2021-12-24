@@ -9,18 +9,26 @@ import SDWebImageSwiftUI
 import SwiftUI
 
 struct DetailsView: View {
+    @FetchRequest(
+        entity: FavoriteDrink.entity(),
+        sortDescriptors: []) var favoriteDrinks: FetchedResults<FavoriteDrink>
     
-    // REMOVER
-    @State var bookmarkedDrinks:[Drink] = []
-    @State var drinksContainsDrink = true
+    var drinkId: String {
+        didSet {
+            self.drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: drinkId)
+        }
+    }
+        
+    var drinkDetailsViewModel: DrinkDetailsViewModel
     
-    let ingredientes = ["Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt", "Tequila", "Triple sec", "Lime juice", "Salt"]
-    let quantidades = ["1 1/2 oz ", "1/2 f ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-", "1 1/2 oz ", "1/2 oz ","1 oz ", "-"]
-    // É SÓ PRA SERVIR DE EXEMPLO
+    init(drinkId: String) {
+        self.drinkId = drinkId
+        self.drinkDetailsViewModel = DrinkDetailsViewModel(drinkId: drinkId)
+    }
     
     var body: some View {
         VStack {
-            WebImage(url: URL(string: "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"))
+            WebImage(url: URL(string: drinkDetailsViewModel.drinkDetails.thumb))
                 .resizable()
                 .placeholder {
                     Rectangle().foregroundColor(.gray)
@@ -40,7 +48,7 @@ struct DetailsView: View {
                         .font(.title2)
                         .padding(.vertical, 0)
                     
-                    Text("Ordinário")
+                    Text(drinkDetailsViewModel.drinkDetails.category)
                         .padding(.vertical, 1)
                 }
                 VStack(alignment: .center) {
@@ -49,7 +57,7 @@ struct DetailsView: View {
                         .font(.title2)
                         .padding(.vertical, 0)
 
-                    Text("Alcoolico")
+                    Text(drinkDetailsViewModel.drinkDetails.isAlcoholic)
                         .padding(.vertical, 1)
                 }
             }
@@ -72,10 +80,10 @@ struct DetailsView: View {
             Spacer()
             
             ScrollView {
-                ForEach(Array(zip(ingredientes, quantidades)), id: \.0) { line in
+                ForEach(drinkDetailsViewModel.drinkDetails.ingredients, id: \.id) { ingredient in
                     
                     HStack(alignment: .top, spacing: 100) {
-                        Text(line.0)
+                        Text(ingredient.name)
                                 .bold()
                                 .font(.title3)
                                 .multilineTextAlignment(.center)
@@ -85,7 +93,7 @@ struct DetailsView: View {
                                 .padding(.top, 3)
                                 .frame(width: 100)
 
-                        Text(line.1)
+                        Text(ingredient.measure)
                                 .bold()
                                 .font(.callout)
                                 .multilineTextAlignment(.center)
@@ -98,33 +106,51 @@ struct DetailsView: View {
                 }
             }.padding(30)
             
-
-            
-        .navigationTitle("Nome do drink")
+            .navigationTitle(drinkDetailsViewModel.drinkDetails.drinkName)
             .toolbar {
-                if drinksContainsDrink {
+                if isFavorited(drinkDetailsViewModel.drinkDetails) {
                     Button {
-                        print("DESfavoritou")
-                        drinksContainsDrink = false // REMOVEr DO ARRAY DE DRINKS favoritos
-                        //                        bookmarkedDrinks.remove(at: bookmarkedDrinks.firstIndex(of: drink))
+                        PersistenceController.shared.delete(
+                            self.searchFavoritedEntity(drinkDetailsViewModel.drinkDetails.id)!
+                        )
                     } label : {
                         Image(systemName: "star.fill")
                     }
                 } else {
                     Button {
-                        print("FAVoritou")
-                        drinksContainsDrink = true // adicionar no ARRAY DE DRINKS favoritos
-                        //                        bookmarkedDrinks.append(drink)
+                        let favoriteDrinkEntity = FavoriteDrink(context: PersistenceController.shared.container.viewContext)
+                        
+                        favoriteDrinkEntity.drinkId = drinkDetailsViewModel.drinkDetails.id
+                        favoriteDrinkEntity.drinkName = drinkDetailsViewModel.drinkDetails.drinkName
+                        favoriteDrinkEntity.isAlcoholic = drinkDetailsViewModel.drinkDetails.isAlcoholic
+                        favoriteDrinkEntity.isFavorite = true
+                        favoriteDrinkEntity.urlImage = drinkDetailsViewModel.drinkDetails.thumb
+                        favoriteDrinkEntity.category = drinkDetailsViewModel.drinkDetails.category
+                        
+                        PersistenceController.shared.save()
+                        
                     } label : {
                         Image(systemName: "star")
                     }
                 }
+                
+                
             }
+    }
+}
+
+extension DetailsView {
+    func isFavorited(_ drink: DrinkDetails) -> Bool {
+        return self.favoriteDrinks.first { $0.drinkId == drink.id } != nil
+    }
+    
+    func searchFavoritedEntity(_ drinkId: String) -> FavoriteDrink? {
+        return self.favoriteDrinks.first { $0.drinkId == drinkId }
     }
 }
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView()
+        DetailsView(drinkId: "29309")
     }
 }
