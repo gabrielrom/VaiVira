@@ -13,31 +13,27 @@ struct BookmarkView: View {
     @FetchRequest(entity: FavoriteDrink.entity(), sortDescriptors: []) var entitiesFavorited: FetchedResults<FavoriteDrink>
 
     var body: some View {
-        NavigationView {
+        VStack {
             if self.bookmarkedDrinks.grid {
                 bookmarkedGridViewFormat(drinks: FavoriteDrinkToBookmarkedModel(entities: entitiesFavorited))
-                    .navigationTitle("Bookmarked Drinks")
                     .toolbar {
-                            Button {
-                                print(bookmarkedDrinks.drinks)
-                                self.bookmarkedDrinks.grid = false
-                              
-                            } label: { Image(systemName: "rectangle.grid.1x2") }
+                        Button {
+                            self.bookmarkedDrinks.grid = false
+                        } label: {
+                            Image(systemName: "rectangle.grid.1x2")
+                        }
                     }
             } else {
-                EmptyView()
+                bookmarkedListViewFormat(drinks: FavoriteDrinkToBookmarkedModel(entities: entitiesFavorited))
+                    .toolbar {
+                        Button {
+                            self.bookmarkedDrinks.grid = true
+                        } label: {
+                            Image(systemName: "square.grid.2x2")
+                        }
+                    }
             }
-//            else {
-//                listFormat(drinks: bookmarkedDrinks.drinks)
-//                    .navigationTitle("Bookmarked Drinks")
-//
-//                    .toolbar {
-//                            Button {
-//                                self.bookmarkedDrinks.grid = true
-//                            } label: { Image(systemName: "square.grid.2x2") }
-//                    }
-//            }
-        }
+        }.navigationTitle("Bookmarked Drinks")
     }
 }
 
