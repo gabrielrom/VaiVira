@@ -37,4 +37,5 @@ func gridFormat(drinks: [Drink]) -> some View {
             }
         }
     }
+//    .navigationViewStyle(.stack)
 }

@@ -1,4 +1,5 @@
 struct BookmarkedModel {
+    
     let id: String
     let drinkName: String
     let isAlcoholic: String

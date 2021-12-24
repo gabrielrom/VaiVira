@@ -35,6 +35,7 @@
 		C157AC7A27736D430010043E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7927736D430010043E /* API.swift */; };
 		C157AC7C27736E530010043E /* CocktailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157AC7B27736E530010043E /* CocktailAPI.swift */; };
 		C157AC7F27736F080010043E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C157AC7E27736F080010043E /* Alamofire */; };
+		CD59C5CF27758055001EC505 /* BookmarkedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD59C5CE27758055001EC505 /* BookmarkedListView.swift */; };
 		EB6E2E9F2773963A00BBF273 /* DrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		C157AC7627736D180010043E /* DrinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkResponse.swift; sourceTree = "<group>"; };
 		C157AC7927736D430010043E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C157AC7B27736E530010043E /* CocktailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAPI.swift; sourceTree = "<group>"; };
+		CD59C5CE27758055001EC505 /* BookmarkedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedListView.swift; sourceTree = "<group>"; };
 		EB6E2E9E2773963A00BBF273 /* DrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 				4EF38C282775551700C7ED81 /* BookmarkedGridView.swift */,
 				4E17086B2774C3D700DE17A2 /* ListView.swift */,
 				4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */,
+				CD59C5CE27758055001EC505 /* BookmarkedListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				4E17086E2774C4CE00DE17A2 /* BookmarkView.swift in Sources */,
 				4E17086A2774C21400DE17A2 /* GridView.swift in Sources */,
 				C157AC7A27736D430010043E /* API.swift in Sources */,
+				CD59C5CF27758055001EC505 /* BookmarkedListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
