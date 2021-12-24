@@ -5,8 +5,9 @@
         <attribute name="drinkName" optional="YES" attributeType="String"/>
         <attribute name="isAlcoholic" optional="YES" attributeType="String"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="urlImage" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FavoriteDrink" positionX="422.51953125" positionY="-0.6875" width="128" height="89"/>
+        <element name="FavoriteDrink" positionX="422.51953125" positionY="-0.6875" width="128" height="104"/>
     </elements>
 </model>

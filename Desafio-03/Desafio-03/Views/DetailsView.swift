@@ -19,6 +19,7 @@ struct DetailsView: View {
         }
     }
         
+    var bookmarkedDrinksViewModel = BookmarkedDrinksViewModel()
     var drinkDetailsViewModel: DrinkDetailsViewModel
     
     init(drinkId: String) {
@@ -132,8 +133,11 @@ struct DetailsView: View {
                         favoriteDrinkEntity.drinkName = drinkDetailsViewModel.drinkDetails.drinkName
                         favoriteDrinkEntity.isAlcoholic = drinkDetailsViewModel.drinkDetails.isAlcoholic
                         favoriteDrinkEntity.isFavorite = true
+                        favoriteDrinkEntity.urlImage = drinkDetailsViewModel.drinkDetails.thumb
                         
                         PersistenceController.shared.save()
+                        bookmarkedDrinksViewModel.drinks.append(drinkDetailsViewModel.drinkDetails)
+                        
                     } label : {
                         Image(systemName: "star")
                     }

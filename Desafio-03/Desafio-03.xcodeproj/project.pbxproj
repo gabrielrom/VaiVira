@@ -12,6 +12,7 @@
 		4E17086C2774C3D700DE17A2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17086B2774C3D700DE17A2 /* ListView.swift */; };
 		4E17086E2774C4CE00DE17A2 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */; };
 		4E1708722774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1708712774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift */; };
+		4EF38C292775551700C7ED81 /* BookmarkedGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF38C282775551700C7ED81 /* BookmarkedGridView.swift */; };
 		803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */; };
 		803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */; };
 		803B0F5D27735DFE00A5ABF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803B0F5C27735DFE00A5ABF1 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		4E17086B2774C3D700DE17A2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		4E1708712774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedDrinksViewModel.swift; sourceTree = "<group>"; };
+		4EF38C282775551700C7ED81 /* BookmarkedGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedGridView.swift; sourceTree = "<group>"; };
 		803B0F5527735DFD00A5ABF1 /* Desafio-03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio-03.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		803B0F5827735DFD00A5ABF1 /* Desafio_03App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desafio_03App.swift; sourceTree = "<group>"; };
 		803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				803B0F5A27735DFD00A5ABF1 /* DrinksView.swift */,
 				4E1708672774BCB000DE17A2 /* DetailsView.swift */,
 				4E1708692774C21400DE17A2 /* GridView.swift */,
+				4EF38C282775551700C7ED81 /* BookmarkedGridView.swift */,
 				4E17086B2774C3D700DE17A2 /* ListView.swift */,
 				4E17086D2774C4CE00DE17A2 /* BookmarkView.swift */,
 			);
@@ -275,6 +278,7 @@
 				4E1708722774C6FF00DE17A2 /* BookmarkedDrinksViewModel.swift in Sources */,
 				C157AC7727736D180010043E /* DrinkResponse.swift in Sources */,
 				803B0F5B27735DFD00A5ABF1 /* DrinksView.swift in Sources */,
+				4EF38C292775551700C7ED81 /* BookmarkedGridView.swift in Sources */,
 				4E1708682774BCB000DE17A2 /* DetailsView.swift in Sources */,
 				803B0F5927735DFD00A5ABF1 /* Desafio_03App.swift in Sources */,
 				81AD93BF2774EB86008EA58F /* Stash.xcdatamodeld in Sources */,
