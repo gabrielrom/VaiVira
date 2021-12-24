@@ -29,6 +29,9 @@ func bookmarkedListViewFormat(drinks: [BookmarkedModel]) -> some View {
                                 .lineLimit(1)
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 15)
+                    .padding(.top, 8)
                 }
             }
         }

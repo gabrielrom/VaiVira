@@ -51,6 +51,7 @@ struct DrinksView: View {
                     }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
